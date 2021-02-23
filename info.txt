@@ -1,0 +1,12 @@
+# TODO
+---
+
+## Wireframe [BLOCK] :: https://dribbble.com/shots/4739703-To-do-List-Interaction-UI-Animation
+- [input_task]-[add_button]
+                    |
+                [Task_Block]-[Edit_Button]-[Delete_Button]
+
+## Task
+- [_] Wireframe
+- [_] Functionality
+- [_] Style > Layout , Respopnsive , Design , Icon
