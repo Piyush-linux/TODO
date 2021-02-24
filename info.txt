@@ -9,13 +9,14 @@
 1. add button to add Complete Block with check,text,delete
     - [x] Get text from input
     - [x] When added Refresh input tab
+    - [_] If input is blank then warn them !
 2. When click check , full block get strike
-    - [_] First target check button 
-    - [_] Then relate to its adjacent text to strike & Animate icon as complete
+    - [x] First target check button 
+    - [x] Then relate to its adjacent text to strike && Animate icon as complete
 3. When click delete , full block get removed
-    - [_] First target check button 
-    - [_] Then relate to its parent
-    - [_] And remove self
+    - [x] First target check button 
+    - [x] Then relate to its parent
+    - [x] And remove self (display:none)
 
 ## Task
 - [x] Wireframe
