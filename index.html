@@ -7,9 +7,7 @@
     <title>TODO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" />
     <style type="text/css" media="screen">
-    	
-    	
-    	 </style>
+    </style>
 </head>
 
 <body>
@@ -21,7 +19,7 @@
                     <div class="field has-addons">
                         <!-- Input todo -->
                         <div class="control is-expanded">
-                            <input type="text" class="input" placeholder="todo">
+                            <input type="text" class="input" placeholder="todo" id="todo">
                         </div>
                         <!-- submit -->
                         <div class="control">
@@ -41,19 +39,19 @@
                 <div class="column is-half ">
                     <div class="columns list is-multiline">
                         <div class="column task box is-full">
-                        	<!-- todo -->
+                            <!-- todo -->
                             <span class="icon-text">
                                 <!-- icon -->
-                                <span class="icon" id="check" onclick="console.log('Hello')">
+                                <span class="icon check">
                                     <img src="./cir.svg" alt="">
                                 </span>
                                 <!-- task -->
-                                <span class="ml-2">Home</span>
+                                <span class="ml-2 task">Home</span>
                             </span>
-                                <!-- delete -->
-                                <span class="icon is-pulled-right" id="delete">
-                                    <img src="./delete.svg" alt="">
-                                </span>
+                            <!-- delete -->
+                            <span class="icon is-pulled-right del">
+                                <img src="./delete.svg" alt="">
+                            </span>
                         </div>
                     </div>
                     <!-- list -->
