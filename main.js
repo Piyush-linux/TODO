@@ -1,5 +1,7 @@
-let tar = document.querySelector('.list')
+let tar = document.querySelector('.main');
 let todo = document.querySelector("#todo");
+let help=document.querySelector(".help");
+// If input is emplty then warn the user
 
 function display() {
     console.log('yo')
@@ -8,17 +10,25 @@ function display() {
 // ADD FULL BLOCK
 function add() {
 
-    var task = todo.value
+    var val = todo.value
+    // if (task.length==0) {}
+    if(val.length==0){
+
+        help.style.display = 'block';
+
+    }else{
+
+    help.style.display = 'none';
     // column
     let column = document.createElement('div');
-    column.setAttribute('class', 'column task box is-full');
+    column.setAttribute('class', 'column list box is-full');
     // span
     let span1 = document.createElement('span');
-    span1.setAttribute('class', 'icon check');
+    span1.setAttribute('class', 'icon check is-medium');
     let span2 = document.createElement('span');
     span2.setAttribute('class', 'icon is-pulled-right del');
     let spanTxt = document.createElement('span');
-    spanTxt.setAttribute('class', 'ml-2 list');
+    spanTxt.setAttribute('class', 'ml-2 val subtitle is-4');
     // icon-text
     let icon_text = document.createElement('span');
     icon_text.setAttribute('class', 'icon-text');
@@ -26,7 +36,7 @@ function add() {
     let icon1 = document.createElement('img');
     icon1.setAttribute('src', './cir.svg');
     // text
-    let txt = document.createTextNode(task);
+    let txt = document.createTextNode(val);
     // delete-icon
     let icon2 = document.createElement('img');
     icon2.setAttribute('src', './delete.svg')
@@ -43,6 +53,7 @@ function add() {
     column.appendChild(span2);
     span2.appendChild(icon2);
 
+    }
     // column.appendChild(txt);
 
 
@@ -75,10 +86,23 @@ del.forEach(e=>{
 
 	}
 })
-
-
-
 // Refresh Input
 todo.value = '';
+
+
+
+// Edit Task
+/*let txt=document.querySelectorAll('.val');
+txt.forEach(e=>{
+    e.onclick=()=>{
+        
+        e.classList.toggle("input")
+        e.classList.toggle("is-small")
+
+    }
+})*/
+
+
 }
 
+console.log(tar)

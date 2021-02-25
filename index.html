@@ -11,7 +11,13 @@
     	}
     	.s{
     		text-decoration:line-through;
+  font-size: 4em;
     	}
+   
+        .help{
+            font-family: monospace;
+            display: none;
+        }
     </style>
 </head>
 
@@ -25,6 +31,7 @@
                         <!-- Input todo -->
                         <div class="control is-expanded">
                             <input type="text" class="input" placeholder="todo" id="todo">
+                        <span class="help is-danger">Please Enter Your List</span>
                         </div>
                         <!-- submit -->
                         <div class="control">
@@ -43,20 +50,21 @@
                 </div>
                 <!-- Task List -->
                 <div class="column is-half ">
-                    <div class="columns list is-multiline">
-                        <div class="column task box is-full">
+                    <div class="columns is-multiline is-grouped-multiline main">
+                        <!-- column:list -->
+                        <div class="column list box is-full">
                             <!-- todo -->
-                            <span class="icon-text">
-                                <!-- icon -->
-                                <span class="icon check">
+                            <span class="icon-text is-large">
+                                <!-- icon:check -->
+                                <span class="icon check is-medium">
                                     <img src="./cir.svg" alt="">
                                 </span>
-                                <!-- task -->
-                                <span class="ml-2 task">Template</span>
+                                <!-- task:val -->
+                                <span class="ml-2 val subtitle is-4">Template</span>
                             </span>
-                            <!-- delete -->
+                            <!-- delete:del -->
                             <span class="icon is-pulled-right del">
-                                <img src="./delete.svg" alt="" class="">
+                                <img src="./delete.svg" alt="">
                             </span>
                         </div>
                     </div>
