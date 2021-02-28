@@ -1,5 +1,6 @@
 # ![TODO](https://piyush-linux.github.io/TODO/)
 ---
+lib => https://github.com/nostalgic-css/NES.css
 
 ## Wireframe  
 - https://dribbble.com/shots/4739703-To-do-List-Interaction-UI-Animation
@@ -36,10 +37,9 @@
 8. User can Download those task as image
 
 
-## Task
-- [x] Wireframe
-- [ ] Functionality
-- [ ] Style > Layout , Respopnsive , Design , Icon
+## Architecture
+columns-<list>
+    column-
 
 ### Future RoadMap
 - Tag's

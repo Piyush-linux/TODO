@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" />
+    
     <style type="text/css" media="screen">
     	.task :hover{
     	}
@@ -54,17 +55,18 @@
                 </div>
                 <!-- Task List -->
                 <div class="column is-half ">
-                    <div class="columns is-multiline is-grouped-multiline main">
+                    <fieldset class="columns is-multiline is-grouped-multiline main box">
+                        <legend class="tag is-dark">Title</legend>
                         <!-- column:list -->
                         <div class="column list box is-full">
                             <!-- todo -->
                             <span class="icon-text is-large">
                                 <!-- icon:check -->
-                                <span class="icon check is-medium">
+                                <span class="icon check">
                                     <img src="./cir.svg" alt="">
                                 </span>
                                 <!-- task:val -->
-                                <span class="ml-2 val subtitle is-4">Template</span>
+                                <span class="ml-2 val subtitle is-5">Template</span>
 
                             </span>
                             <!-- delete:del -->
@@ -72,7 +74,8 @@
                                 <img src="./delete.svg" alt="">
                             </span>
                         </div>
-                    </div>
+
+                    </fieldset>
                     <!-- todo's -->
                 </div>
                 
