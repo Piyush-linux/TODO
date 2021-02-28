@@ -88,26 +88,28 @@ function add() {
             setTimeout(e=> {
             c.display = 'none';
             }, 1000);
-            console.log(c)
+            console.log("%cDeleted !","color:green")
 
         }
     })
     // Refresh Input
     todo.value = '';
-/*
-let box=document.querySelectorAll('.box')
-box.forEach(e=>{
-    e.addEventListener('touchmove',y=>{
 
-        e.style.transition = '1s';
-            e.style.marginLeft = '100px';
-            e.style.opacity = '.1';
-            setTimeout(f=> {
-                // tar
-            e.style.display = 'none';
-            }, 1000);
-    })
-})*/
+// Hold Priortise
+let task=document.querySelectorAll('.list');
+let pop = document.querySelector('.popup');
+
+task.forEach(e=>{
+    e.ondblclick=()=>{
+        document.querySelector('main').style.opacity = '.5'
+        console.log(pop.style.display = 'block')
+        console.log(pop.style.visibility = 'visible')
+        console.log(pop.style.opacity = '1')
+        console.log('hi')
+    }
+})
+console.log(pop)
+
 
 
     // Edit Task

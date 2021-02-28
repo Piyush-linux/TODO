@@ -1,6 +1,5 @@
 # ![TODO](https://piyush-linux.github.io/TODO/)
 ---
-lib => https://github.com/nostalgic-css/NES.css
 
 ## Wireframe  
 - https://dribbble.com/shots/4739703-To-do-List-Interaction-UI-Animation
@@ -8,16 +7,15 @@ lib => https://github.com/nostalgic-css/NES.css
     - add => ( [B_check] + [txt>>-Task] + [B_delete] )-column[drag-gable]
 
 ## Pseudo Code
-1. [add]:onclick button to add Complete Block with check,text,delete
+1. [add_B]:onclick
+    - [x] add Complete Block of task
     - [x] Get text from input
     - [x] When added Refresh input tab
     - [x] If input is blank then warn them !
-2. [check]:onclick full block get strike
-    - [x] First target check button 
+2. [chk_B]:onclick
     - [x] Then relate to its adjacent text to strike && Animate icon as complete
     - [ ] Strike text with animation with change Icon Animation
-3. [delete]:onclick full block get removed
-    - [x] First target check button 
+3. [del_B]:onclick full block get removed
     - [x] Then relate to its parent
     - [x] And remove self (display)
 4. Store Task in LocalStroage 
@@ -27,19 +25,29 @@ lib => https://github.com/nostalgic-css/NES.css
 5. [task]:ondrag => You can darg up & Down
     - [ ] Draggable block
     - [ ] draggbale area with a Icon on left-side
-6. [task]:onhold => prioritize task
-    - [ ] Change icon to red,blue,green
+6. [task]:onhold
+    - [ ] prioritize task(tag)
+    - [ ] on select tag you can only see that task
 7. [list(+)]:onclick => Add a List
-7. Introduction Image slider for User Guide::https://in.pinterest.com/pin/480196379024476441/
+7. Introduction Image slider for User Guide::
+    https://www.behance.net/gallery/72614427/To-Do-App-Concept && https://in.pinterest.com/pin/480196379024476441/ 
     - [ ] introduction Page Design
     - [ ] on Page load Execution
     - [ ] Slider Function
 8. User can Download those task as image
 
+## Pallete
+green :: #1abc9c
+violet :: #8280FF,#E8E7FF
+red :: #FF7285 , #FFE2E6
+yellow :: #FFCA83 , #FFF4E5
+green :: 4AD991 , #DAF7E8 ,#1abc9c
+grey :: #B4B4C6 ,#F0F0F7
 
 ## Architecture
-columns-<list>
-    column-
+- column-<task>
+    = icon-text-(chk-[icon] + txt) + del-[icon]
+
 
 ### Future RoadMap
 - Tag's

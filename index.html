@@ -6,31 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" />
-    
     <style type="text/css" media="screen">
-    	.task :hover{
-    	}
-    	.s{
-    		text-decoration:line-through;
-    	}
-   
-        .help{
-            font-family: monospace;
+        .popup{
+            position: absolute;
             display: none;
+            margin: 0 auto;
+            margin-top: 10rem;
+            visibility: collapse;
+            opacity: 1;
+            z-index: -1;
+            
         }
-
-        .del{
-
+        *{
+              -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
         }
-        .del:active {
+    .task :hover {}
 
-    left: 100px;
-    
-}
+    .s {
+        text-decoration: line-through;
+        opacity: .3;
+    }
+
+    .help {
+        font-family: monospace;
+        display: none;
+    }
+
+    .del {}
+
+    .del:active {
+
+        left: 100px;
+
+    }
+    .addList{
+
+    }
     </style>
 </head>
 
 <body>
+    <!-- Popup -->
+    
+            <div class="popup box">
+                
+        <div class="field has-addons has-background-dark">
+            <div class="control">
+        <input type="text" placeholder="add tag" class="input is-small">
+            </div>
+            <div class="control">
+                <div class="button is-small">+</div>
+            </div>
+        </div>
+            </div>
+
+    <!-- Main -->
     <main>
         <section class="section">
             <div class="columns is-grouped-multiline is-multiline is-centered">
@@ -40,23 +75,28 @@
                         <!-- Input todo -->
                         <div class="control is-expanded">
                             <input type="text" class="input" placeholder="todo" id="todo">
-                        <span class="help is-danger">Please Enter Your List</span>
+                            <span class="help is-danger">Please Enter Your List</span>
                         </div>
                         <!-- submit -->
                         <div class="control">
                             <button class="button is-rounded" id="submit" onclick="add()">
-                            	
                                 <span class="icon is-large">
                                     <img src="./add.svg" alt="">
                                 </span>
                             </button>
                         </div>
                     </div>
+                    <!-- tags -->
+                    <div class="tags are-medium">
+                      <span class="tag is-white">All</span>
+                      <span class="tag is-danger">IMP</span>
+                      <span class="tag is-info">Normal</span>
+                      <span class="tag is-dark">Other</span>
+                    </div>
                 </div>
-                <!-- Task List -->
                 <div class="column is-half ">
-                    <fieldset class="columns is-multiline is-grouped-multiline main box">
-                        <legend class="tag is-dark">Title</legend>
+                    <!-- Task List -->
+                    <div class="columns is-multiline is-grouped-multiline main">
                         <!-- column:list -->
                         <div class="column list box is-full">
                             <!-- todo -->
@@ -67,31 +107,45 @@
                                 </span>
                                 <!-- task:val -->
                                 <span class="ml-2 val subtitle is-5">Template</span>
-
                             </span>
                             <!-- delete:del -->
                             <span class="icon is-pulled-right del">
                                 <img src="./delete.svg" alt="">
                             </span>
                         </div>
-
-                    </fieldset>
                     <!-- todo's -->
+                    </div>
                 </div>
-                
             </div>
         </section>
         <!-- ADD -->
         <section id="listAdd">
             <div class="level">
                 <div class="level-item">
-                    <button class="button">+</button>
+                    <button class="button addList">+</button>
+                    <!-- <div class="field has-addons">
+                        <div class="control">
+                    <input type="text" placeholder="tag" class="input is-small" style="width: auto">
+                        </div>
+                        <div class="control">
+                            <div class="button">+</div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </section>
     </main>
     <!-- script -->
-    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="./main.js">
+       
+
+    </script>
 </body>
 
 </html>
+<!-- 
+? How to create Popup box to input list title for the tag
+- customise prompt window
+- hold to add tag
+- click on any tag to get that task only type (display:none;)
+ -->
