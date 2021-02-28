@@ -19,6 +19,9 @@
     - [x] First target check button 
     - [x] Then relate to its parent
     - [x] And remove self (display)
+4. Store Task in LocalStroage 
+    - so they can revisit and usability also increases
+    - win.load(restoreTask): add->setItem(task) remove->removeItem(task)
 4. [task]:onclick => You can Edit that task 
 5. [task]:ondrag => You can darg up & Down
     - [ ] Draggable block
