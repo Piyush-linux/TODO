@@ -1,16 +1,28 @@
 let tar = document.querySelector('.main');
 let todo = document.querySelector("#todo");
 let help = document.querySelector(".help");
+// When Page is loaded
+document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'interactive') {
+       document.querySelector('body').style.visibility="hidden";
+       document.querySelector('#load').style.visibility="visible";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.querySelector('body').style.visibility="visible";
+         document.getElementById('load').style.visibility="hidden";
+      },2000);
+  }
+}
 // If input is emplty then warn the user
 
-function display() {
-    console.log('yo')
-}
+
 
 // ADD FULL BLOCK
 function add() {
 
-    var val = todo.value
+    var val = todo.value;
     // if (task.length==0) {}
     if (val.length == 0) {
 
@@ -75,6 +87,7 @@ function add() {
             }
             // Strike throug adjacent text when checked
             e.parentElement.nextElementSibling.classList.toggle('s')
+            console.log(e.parentElement.parentElement)
         }
     })
     // Delete Button
@@ -95,20 +108,47 @@ function add() {
     // Refresh Input
     todo.value = '';
 
-// Hold Priortise
+// Hold Priortise : dbclick -> select -> addTag + del
 let task=document.querySelectorAll('.list');
 let pop = document.querySelector('.popup');
 
 task.forEach(e=>{
     e.ondblclick=()=>{
-        document.querySelector('main').style.opacity = '.5'
-        console.log(pop.style.display = 'block')
-        console.log(pop.style.visibility = 'visible')
-        console.log(pop.style.opacity = '1')
-        console.log('hi')
+    	// Make BG blur & Get Popup select box
+        document.querySelector('main').style.opacity = '.2'
+        pop.style.display = 'block';
+        pop.style.visibility = 'visible';
+        pop.style.opacity = '1';
+        // Select TAG
+        let sel=document.querySelector('#selTag');//target select
+        sel.oninput=()=>{
+        	let tag=document.createElement('div');//create tag
+    	    let txt=sel.value.toLowerCase()
+    	    // set arrt based on select value
+    	    if (txt=='all') {
+    	    	tag.setAttribute('class', 'tag ml-3 is-small has-text-weight-bold');
+    	    }else if(txt=='imp'){
+    	    	tag.setAttribute('class', 'tag ml-3 is-danger is-small has-text-weight-bold');
+    	    }else if(txt=='normal'){
+    	    	tag.setAttribute('class', 'tag ml-3 is-info is-small has-text-weight-bold');
+    	    }else if(txt=='other'){
+    	    	tag.setAttribute('class', 'tag ml-3 is-dark is-small has-text-weight-bold');
+    	    }
+        	let tagTxt=document.createTextNode(sel.value);//Ceate Tag Text
+    	    let tagDel=document.createElement('button');//Create delete button for tag
+    	    tagDel.setAttribute('class','delete is-small ml-1')
+    	    // Append: txt+del )- TAG )- Task
+    	    tag.appendChild(tagTxt);
+    	    tag.appendChild(tagDel)
+	        e.appendChild(tag);
+	       	pop.style.display = 'none'
+	       	pop.style.visibility = 'collapse'
+	       	document.querySelector('main').style.opacity = '1'
+	       	console.log('selected')
+        }
+
     }
 })
-console.log(pop)
 
 
 
@@ -116,7 +156,7 @@ console.log(pop)
     /*let txt=document.querySelectorAll('.val');
     txt.forEach(e=>{
         e.onclick=()=>{
-            
+
             e.classList.toggle("input")
             e.classList.toggle("is-small")
 
@@ -126,4 +166,3 @@ console.log(pop)
 
 }
 
-console.log(tar)
