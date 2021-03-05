@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" />
     <!-- <link rel="stylesheet" type="text/css" href="../../web/css-lib/bulma.css"> -->
     <style type="text/css" media="screen">
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
     /*Loading Icon*/
 
    #load{
@@ -42,7 +44,20 @@
     }
 
     .task :hover {}
-
+/*input*/
+#todo{
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-family: Varela Round;
+    /*border-bottom: 3px solid #636e72;*/
+    /*border-radius: 10%;*/
+}
+#submit{
+    border: none;
+    outline: none;
+}
+/*strike*/
     .s {
         text-decoration: line-through;
         opacity: .3;
@@ -52,7 +67,10 @@
         font-family: monospace;
         display: none;
     }
-
+/*text*/
+.val{
+    font-family: Varela Round;
+}
     .del {}
 
     .del:active {
@@ -92,7 +110,8 @@
                     <div class="field has-addons">
                         <!-- Input todo -->
                         <div class="control is-expanded">
-                            <input type="text" class="input" placeholder="todo" id="todo">
+                            <input type="text" class="input is-radiusless" placeholder="todo" id="todo">
+                            <span style="width: 100%;background-color: #636e72;height:5px;display: block;border-radius:4px;"></span>
                             <span class="help is-danger">Please Enter Your List</span>
                         </div>
                         <!-- submit -->
