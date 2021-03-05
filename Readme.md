@@ -14,7 +14,7 @@
     - [x] If input is blank then warn them !
 2. [chk_B]:onclick
     - [x] Then relate to its adjacent text to strike && Animate icon as complete
-    - [ ] Strike text with animation with change Icon Animation
+    - [x] Strike text with animation with change Icon Animation
 3. [del_B]:onclick full block get removed
     - [x] Then relate to its parent
     - [x] And remove self (display)
@@ -26,9 +26,10 @@
     - [ ] Draggable block
     - [ ] draggbale area with a Icon on left-side
 6. [task]:onhold
-    - [ ] prioritize task(tag)
+    - [x] prioritize task(tag)
     - [ ] on select tag you can only see that task
-7. [list(+)]:onclick => Add a List
+8. [hamburger]:onclick => Give list tag
+    - [ ] [list(+)]:onclick => Add a List
 7. Introduction Image slider for User Guide::
     https://www.behance.net/gallery/72614427/To-Do-App-Concept && https://in.pinterest.com/pin/480196379024476441/ 
     - [ ] introduction Page Design

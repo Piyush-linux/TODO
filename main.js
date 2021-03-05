@@ -17,10 +17,7 @@ document.onreadystatechange = function () {
 }
 // When doument is loaded Restore Task
 window.onload=()=>{
-// localStorage.removeItem('todo1')
-// localStorage.removeItem('todo0')
-// localStorage.removeItem('todo')
-		 obj = localStorage;
+		obj = localStorage;
     	for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
 		// column
@@ -56,8 +53,45 @@ window.onload=()=>{
 
         column.appendChild(span2);
         span2.appendChild(icon2);
-    }
-}
+    	}
+	}
+	// outter Delete
+let del = document.querySelectorAll('.del')
+del.forEach(e => {
+        e.onclick = () => {
+        	// remove form storage
+            localStorage.removeItem(e.parentElement.innerText,e.parentElement.innerText)
+            console.log(e.parentElement.innerText)
+            let c = e.parentElement.style
+            c.transition = '1s';
+            c.marginLeft = '100px';
+            c.opacity = '.1';
+            setTimeout(e=> {
+            c.display = 'none';
+            }, 1000);
+            console.log("%cDeleted !","color:green")
+
+        }
+        console.log(e)
+    })
+ // Check Button
+    let check = document.querySelectorAll('.check img');
+
+    check.forEach(e => {
+        e.onclick = (y) => {
+            let cond = e.attributes[0].value == './check.svg'
+            // Toggle icon
+            if (cond) {
+                e.setAttribute('src', './cir.svg');
+
+            } else {
+                e.setAttribute('src', './check.svg');
+            }
+            // Strike throug adjacent text when checked
+            e.parentElement.nextElementSibling.classList.toggle('s')
+            console.log(e.parentElement.parentElement)
+        }
+    })
 }
 // If input is emplty then warn the user
 
@@ -66,7 +100,7 @@ window.onload=()=>{
 // ADD FULL BLOCK
 function add() {
 
-localStorage.removeItem('todo2')
+	localStorage.removeItem('todo2')
     var val = todo.value;
     // if (task.length==0) {}
     if (val.length == 0) {
@@ -110,7 +144,7 @@ localStorage.removeItem('todo2')
         column.appendChild(span2);
         span2.appendChild(icon2);
 
-        // Store 
+        // Store
         localStorage.setItem(val,val)
         console.log(localStorage)
 
@@ -124,7 +158,6 @@ localStorage.removeItem('todo2')
 
     // Check Button
     let check = document.querySelectorAll('.check img');
-
     check.forEach(e => {
         e.onclick = (y) => {
             let cond = e.attributes[0].value == './check.svg'
@@ -140,6 +173,7 @@ localStorage.removeItem('todo2')
             console.log(e.parentElement.parentElement)
         }
     })
+    
     // Delete Button
     let del = document.querySelectorAll('.del')
     del.forEach(e => {
@@ -164,7 +198,6 @@ localStorage.removeItem('todo2')
 // Hold Priortise : dbclick -> select -> addTag + del
 let task=document.querySelectorAll('.list');
 let pop = document.querySelector('.popup');
-
 task.forEach(e=>{
     e.ondblclick=()=>{
     	// Make BG blur & Get Popup select box
@@ -213,7 +246,6 @@ task.forEach(e=>{
 
         }
     })*/
-
-
 }
+
 

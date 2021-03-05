@@ -45,11 +45,13 @@
 
     .task :hover {}
 /*input*/
+
 #todo{
     outline: none;
     border: none;
     box-shadow: none;
     font-family: Varela Round;
+    font-size: 1.1em;
     /*border-bottom: 3px solid #636e72;*/
     /*border-radius: 10%;*/
 }
@@ -111,25 +113,19 @@
                         <!-- Input todo -->
                         <div class="control is-expanded">
                             <input type="text" class="input is-radiusless" placeholder="todo" id="todo">
-                            <span style="width: 100%;background-color: #636e72;height:5px;display: block;border-radius:4px;"></span>
+                            <span style="width: 98%;background-color: #636e72;height:5px;display: block;border-radius:4px;"></span>
                             <span class="help is-danger">Please Enter Your List</span>
                         </div>
                         <!-- submit -->
                         <div class="control">
-                            <button class="button is-rounded" id="submit" onclick="add()">
+                            <button class="button is-rounded is-medium" id="submit" onclick="add()">
                                 <span class="icon is-large">
                                     <img src="./add.svg" alt="">
                                 </span>
                             </button>
                         </div>
                     </div>
-                    <!-- tags -->
-                    <div class="tags are-medium" id="tags">
-                        <span class="tag is-white">All</span>
-                        <span class="tag is-danger">IMP</span>
-                        <span class="tag is-info">Normal</span>
-                        <span class="tag is-dark">Other</span>
-                    </div>
+                   
                 </div>
                 <div class="column is-half ">
                     <!-- Task List -->
@@ -146,7 +142,7 @@
                                 <span class="ml-2 val subtitle is-5">Template
                                     <span class="tag is-danger has-text-weight-bold">
                                          TAG
-                                         <button class="delete is-small ml-1"></button>   
+                                         <button class="delete is-small ml-1"></button>
                                     </span>
                                 </span>
                             </span>
@@ -188,4 +184,4 @@
 - customise prompt window
 - hold to add tag
 - click on any tag to get that task only type (display:none;)
- -->
+-->
