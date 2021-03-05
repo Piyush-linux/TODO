@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" />
+</head>
+<body>
+	<div class="field has-addons">
+		<div class="control">
+			<input type="text" name="" value="" placeholder="name" class="input" id="txt">
+		</div>
+		<div class="control">
+			<input type="submit" name="" value="SUBMIT" class="button is-primary" id="submit">
+		</div>
+	</div>
+	<hr>
+	<div class="container">
+		
+	</div>
+
+</body>
+<script type="text/javascript">
+	// Restore 
+	window.onload=()=>{
+		data=localStorage;
+		data.map((k,e)=>{console.log(e)})
+	}
+	let inp=document.querySelector('#txt');
+	let but=document.querySelector('#submit');
+	let container=document.querySelector('.container');
+	// ON Click
+	but.onclick=()=>{
+		let val=inp.value
+		let span=document.createElement('span')
+		span.setAttribute('class', 'tag mx-1')
+		let txt=document.createTextNode(val)
+		span.appendChild(txt)
+		container.appendChild(span)
+		// Storage
+		localStorage.setItem(val,val)
+	console.log(localStorage)
+	}
+</script>
+</html>
