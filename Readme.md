@@ -37,6 +37,10 @@
     - [ ] Slider Function
 8. User can Download those task as image
 
+## Style
+- [ ] Favicon
+- [ ] Sharable link => title , org
+
 ## Pallete
 green :: #1abc9c
 violet :: #8280FF,#E8E7FF

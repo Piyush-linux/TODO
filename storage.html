@@ -22,7 +22,8 @@
     </div>
 </body>
 <script type="text/javascript">
-// Restore 
+//jshint esversion:8
+// Restore
 window.onload = () => {
     obj = localStorage;
     for (let key in obj) {
@@ -39,35 +40,37 @@ window.onload = () => {
             console.log(obj[key]);
         }
     }
-}
+};
 let inp = document.querySelector('#txt');
 let but = document.querySelector('#submit');
 let container = document.querySelector('.container');
 // ON Click
 but.onclick = () => {
-    let val = inp.value
+    let val = inp.value;
     let span = document.createElement('span');
     span.setAttribute('class', 'tag mx-1');
     let del=document.createElement('button');
     del.setAttribute('class', 'delete is-small');
-    let txt = document.createTextNode(val)
-    span.appendChild(txt)
-    span.appendChild(del)
-    container.appendChild(span)
+    let txt = document.createTextNode(val);
+    span.appendChild(txt);
+    span.appendChild(del);
+    container.appendChild(span);
+    // tar.style.opacity;
     // Storage
-    localStorage.setItem(val, val)
-    console.log(localStorage)
+    // FIXME: Local Storage =>
+    localStorage.setItem(val, val);
+    console.log(localStorage);
 	// delete storage
 	let delBut=document.querySelectorAll('.delete');
 	delBut.forEach(e=>{
 			e.onclick=()=>{
-				let tar=e.parentElement
-				localStorage.removeItem(tar.innerText)
+				let tar=e.parentElement;
+				localStorage.removeItem(tar.innerText);
 				tar.style.display = 'none';
-				console.log(e.parentElement.innerText)
-			}
-		})
-}
+				console.log(e.parentElement.innerText);
+			};
+		});
+};
 </script>
 
 </html>

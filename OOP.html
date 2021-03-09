@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-OOP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css" />
+</head>
+
+<body>
+    <div class="field has-addons">
+        <!-- task -->
+        <div class="control">
+            <input type="text" placeholder="name" class="input" id="txt">
+        </div>
+        <!-- add -->
+        <div class="control">
+            <input type="submit" value="SUBMIT" class="button is-primary" id="submit">
+        </div>
+    </div>
+    <hr>
+    <!-- list -->
+    <div class="container">
+    </div>
+    <!-- script -->
+    <script type="text/javascript">
+    // jshint esversion:8 
+    let inp = document.querySelector('#txt');//get
+    let submit = document.querySelector('#submit');//submit
+    let container=document.querySelector('.container');
+
+    class Task {
+        constructor(inp) {
+            this.task = inp;
+            console.log(this.task);
+        }
+        add() {
+        	let block=document.createElement('div');
+        	block.setAttribute('class','is-block box');
+        	block.innerText=this.task;
+        	container.appendChild(block);
+        	// Refresh
+        	inp.value='';
+        }
+        remove(ele){
+        	container.removeChild(ele);
+        }
+    }
+    submit.addEventListener('click', () => {
+        // get task
+        let task = new Task(inp.value);
+        // add task
+        task.add();
+        // del task
+        let del=document.querySelectorAll('.is-block');
+        del.forEach(e=>{
+        	e.onclick=()=>task.remove(e);
+        });
+    });
+    </script>
+</body>
+
+</html>
