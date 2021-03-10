@@ -2,26 +2,25 @@
 ---
 
 ## Wireframe  
-- https://dribbble.com/shots/4739703-To-do-List-Interaction-UI-Animation
 - [I(txt)] + [B_add]
     - add => ( [B_check] + [txt>>-Task] + [B_delete] )-column[drag-gable]
 
 ## Pseudo Code
-1. [add_B]:onclick
+
+1. onclick add
     - [x] add Complete Block of task
     - [x] Get text from input
     - [x] When added Refresh input tab
     - [x] If input is blank then warn them !
-2. [chk_B]:onclick
+2. onclick check
     - [x] Then relate to its adjacent text to strike && Animate icon as complete
     - [x] Strike text with animation with change Icon Animation
-3. [del_B]:onclick full block get removed
-    - [x] Then relate to its parent
-    - [x] And remove self (display)
+3. onclick delete
+    - [x] get removed also loacally
 4. Store Task in LocalStroage 
     - so they can revisit and usability also increases
     - win.load(restoreTask): add->setItem(task) remove->removeItem(task)
-4. [task]:onclick => You can Edit that task 
+4. onclick => You can Edit that task 
 5. [task]:ondrag => You can darg up & Down
     - [ ] Draggable block
     - [ ] draggbale area with a Icon on left-side
@@ -39,16 +38,8 @@
 9. Date Functionality
 
 ## Style
-- [ ] Favicon
-- [ ] Sharable link => title , org
-
-## Pallete
-green :: #1abc9c
-violet :: #8280FF,#E8E7FF
-red :: #FF7285 , #FFE2E6
-yellow :: #FFCA83 , #FFF4E5
-green :: 4AD991 , #DAF7E8 ,#1abc9c
-grey :: #B4B4C6 ,#F0F0F7
+- [x] Favicon
+- [x] Sharable link => title , description !
 
 ## Architecture
 - column-<task>
@@ -62,7 +53,6 @@ grey :: #B4B4C6 ,#F0F0F7
 - Little Animation && Styling
 
 # Contribution
----
 ### Everyone is welcome to contribute, in whatever form they are comfortable with. For example:
 
 - improve documentation,
