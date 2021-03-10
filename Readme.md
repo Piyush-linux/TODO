@@ -36,6 +36,7 @@
     - [ ] on Page load Execution
     - [ ] Slider Function
 8. User can Download those task as image
+9. Date Functionality
 
 ## Style
 - [ ] Favicon
@@ -59,4 +60,13 @@ grey :: #B4B4C6 ,#F0F0F7
 - Editable text
 - Drag-able Block
 - Little Animation && Styling
-- 
+
+# Contribution
+---
+### Everyone is welcome to contribute, in whatever form they are comfortable with. For example:
+
+- improve documentation,
+- test features,
+- fix bugs,
+- or add new features.
+
