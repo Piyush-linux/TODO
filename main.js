@@ -10,45 +10,31 @@ class Task {
     }
     add() {
         help.style.display = 'none';
-        // column
-        let column = document.createElement('div');
+        let template=`<!-- todo -->
+                    <span class="icon-text is-large">
+                      <!-- icon:check -->
+                      <span class="icon check">
+                        <img src="img/cir.svg" alt="">
+                      </span>
+                      <!-- task:val -->
+                      <span class="ml-2 val subtitle is-5">
+                        ${this.task}
+                      </span>
+                    </span>
+                      <!-- delete:del -->
+                    <span class="icon is-pulled-right del">
+                      <img src="img/delete.svg" alt="">
+                    </span>
+        `;
+        let column=document.createElement('div');
         column.setAttribute('class', 'column list box is-full');
-        // span
-        let span1 = document.createElement('span');
-        span1.setAttribute('class', 'icon check is-medium');
-        let span2 = document.createElement('span');
-        span2.setAttribute('class', 'icon is-pulled-right del');
-        let spanTxt = document.createElement('span');
-        spanTxt.setAttribute('class', 'ml-2 val subtitle is-5');
-        // icon-text
-        let icon_text = document.createElement('span');
-        icon_text.setAttribute('class', 'icon-text');
-        // check-icon
-        let icon1 = document.createElement('img');
-        icon1.setAttribute('src', 'img/cir.svg');
-        // text
-        let txt = document.createTextNode(this.task);
-        // delete-icon
-        let icon2 = document.createElement('img');
-        icon2.setAttribute('src', 'img/delete.svg');
-        // Append >>
-        tar.appendChild(column);
-        column.appendChild(icon_text);
-
-        icon_text.appendChild(span1);
-        span1.appendChild(icon1);
-
-        icon_text.appendChild(spanTxt);
-        spanTxt.appendChild(txt);
-
-        column.appendChild(span2);
-        span2.appendChild(icon2);
-
+        column.innerHTML=template;
+        tar.append(column);
         // Store
         this.data.setItem(this.task, this.task);
         console.log(localStorage);
     }
-    delete(ele) {
+     delete(ele) {
       // remove form storage
             this.data.removeItem(ele.innerText);
             console.log(ele.innerText);
@@ -59,7 +45,7 @@ class Task {
             c.opacity = '.1';
             // setTimeout(() => { c.display = 'none'; }, 1000);
             setTimeout(() => { tar.removeChild(ele); }, 1000);
-            console.log("%cDeleted !", "color:green");
+            console.log(`DELETED : ${this.task}`);
     }
     check(e) {
          let cond = e.attributes[0].value == 'img/check.svg';
@@ -97,22 +83,19 @@ window.onload = () => {
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
           // Get task
-          let task=new Task(key);
+          let block=new Task(key);
           // add task
-          task.add();
+          block.add();
         }
     }
     // outter Delete
-    let del = document.querySelectorAll('.del');
-    del.forEach(e => {
-        e.onclick = () => task.delete(e.parentElement);
-    });
+    let del = document.querySelectorAll('.del');//TODO: not getting deleted without adding
+    del.forEach(e => {e.onclick = () => block.delete(e.parentElement); });
     // Check Button
     let check = document.querySelectorAll('.check img');
-    check.forEach(e => { e.onclick = () => task.check(e); });
-};
-// If input is emplty then warn the user
+    check.forEach(e => { e.onclick = () => block.check(e); }); 
 
+  };
 // ADD FULL BLOCK
 function add() {
     // var val = todo.value;
@@ -127,7 +110,7 @@ function add() {
     check.forEach(e => {e.onclick = () => block.check(e);});
     // Delete Button
     let del = document.querySelectorAll('.del');
-    del.forEach(e => {e.onclick = () => block.delete(e.parentElement);});
+    del.forEach(e => {e.onclick = () => block.delete(e.parentElement); });
     // Refresh Input
     todo.value = '';
 
