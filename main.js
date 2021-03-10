@@ -2,41 +2,39 @@
 let tar = document.querySelector('.main');
 let todo = document.querySelector("#todo");
 let help = document.querySelector(".help");
-
-class Task {
-    constructor(task) {
-        this.task = task;
-        this.data = localStorage;
-    }
-    add() {
+// task
+const Task={
+    add:(val)=>{
         help.style.display = 'none';
         let template=`<!-- todo -->
-                    <span class="icon-text is-large">
-                      <!-- icon:check -->
-                      <span class="icon check">
+                     <span class="icon-text is-large">
+                     <!-- icon:check -->
+                       <span class="icon check">
                         <img src="img/cir.svg" alt="">
-                      </span>
-                      <!-- task:val -->
-                      <span class="ml-2 val subtitle is-5">
-                        ${this.task}
-                      </span>
-                    </span>
-                      <!-- delete:del -->
-                    <span class="icon is-pulled-right del">
-                      <img src="img/delete.svg" alt="">
-                    </span>
-        `;
-        let column=document.createElement('div');
-        column.setAttribute('class', 'column list box is-full');
-        column.innerHTML=template;
-        tar.append(column);
-        // Store
-        this.data.setItem(this.task, this.task);
-        console.log(localStorage);
-    }
-     delete(ele) {
-      // remove form storage
-            this.data.removeItem(ele.innerText);
+                       </span>
+                       <!-- task:val -->
+                       <span class="ml-2 val subtitle is-5">
+                            ${val}
+                       </span>
+                     </span>
+                       <!-- delete:del -->
+                     <span class="icon is-pulled-right del">
+                       <img src="img/delete.svg" alt="">
+                     </span>
+         `;
+         // block
+         let column=document.createElement('div');
+         column.setAttribute('class', 'column list box is-full');
+         // appending
+         column.innerHTML=template;
+         tar.append(column);
+         // Store
+         localStorage.setItem(val,val);
+         console.log(localStorage);
+    },
+    delete:(ele)=>{
+            // remove form storage
+            localStorage.removeItem(ele.innerText);
             console.log(ele.innerText);
             // delete animation
             let c = ele.style;
@@ -44,25 +42,22 @@ class Task {
             c.marginLeft = '100px';
             c.opacity = '.1';
             // setTimeout(() => { c.display = 'none'; }, 1000);
+            console.log(`DELETED : ${ele.innerText}`);
             setTimeout(() => { tar.removeChild(ele); }, 1000);
-            console.log(`DELETED : ${this.task}`);
-    }
-    check(e) {
-         let cond = e.attributes[0].value == 'img/check.svg';
+    },
+    check:(e)=>{
+        let cond = e.attributes[0].value == 'img/check.svg';
             // Toggle icon
             if (cond) {
                 e.setAttribute('src', 'img/cir.svg');
-
             } else {
                 e.setAttribute('src', 'img/check.svg');
             }
             // Strike throug adjacent text when checked
             e.parentElement.nextElementSibling.classList.toggle('s');
-    }
-    store(){
+    },
+};
 
-    }
-}
 // When Page is loaded
 document.onreadystatechange = function() {
     var state = document.readyState;
@@ -82,35 +77,32 @@ window.onload = () => {
     obj = localStorage;
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
-          // Get task
-          let block=new Task(key);
-          // add task
-          block.add();
+        // Get task
+        Task.add(key);
         }
     }
     // outter Delete
     let del = document.querySelectorAll('.del');//TODO: not getting deleted without adding
-    del.forEach(e => {e.onclick = () => block.delete(e.parentElement); });
+    del.forEach(e => {e.onclick = () => Task.delete(e.parentElement); });
     // Check Button
     let check = document.querySelectorAll('.check img');
-    check.forEach(e => { e.onclick = () => block.check(e); }); 
+    check.forEach(e => { e.onclick = () => Task.check(e); }); 
 
   };
 // ADD FULL BLOCK
 function add() {
     // var val = todo.value;
-    let block = new Task(todo.value);
     if (todo.value.length == 0) {
         help.style.display = 'block';
     } else {
-        block.add();
+        Task.add(todo.value);
     }
     // Check Button
     let check = document.querySelectorAll('.check img');
-    check.forEach(e => {e.onclick = () => block.check(e);});
+    check.forEach(e => {e.onclick = () => Task.check(e); });
     // Delete Button
     let del = document.querySelectorAll('.del');
-    del.forEach(e => {e.onclick = () => block.delete(e.parentElement); });
+    del.forEach(e => {e.onclick = () => Task.delete(e.parentElement); });
     // Refresh Input
     todo.value = '';
 
