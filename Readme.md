@@ -1,4 +1,4 @@
-# ![TODO](https://piyush-linux.github.io/TODO/)
+# [TODO](https://piyush-linux.github.io/TODO/)
 ---
 
 ## Wireframe  
